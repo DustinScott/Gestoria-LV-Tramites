@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestoría LV – Trámites Rápidos, Seguros y Confiables</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2145;
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --teal: #1a8c8c;
+    --teal-light: #2ab5b5;
+    --cream: #f9f5ee;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6070;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  header {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,168,75,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(26,140,140,.15) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 32px 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-badge {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 900;
+    color: var(--navy);
+    box-shadow: 0 8px 32px rgba(200,168,75,.4);
+    margin-bottom: 20px;
+    animation: fadeUp .6s ease both;
+  }
+
+  .hero-tagline {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    animation: fadeUp .6s .1s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-title span { color: var(--gold); font-style: italic; }
+
+  .hero-sub {
+    margin-top: 20px;
+    font-size: 17px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.6;
+    max-width: 460px;
+    animation: fadeUp .6s .3s ease both;
+  }
+
+  .hero-cta {
+    margin-top: 36px;
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp .6s .4s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(200,168,75,.35);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,168,75,.5); }
+
+  .btn-secondary {
+    border: 2px solid rgba(255,255,255,.3);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: border-color .2s, background .2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(200,168,75,.1); }
+
+  .hero-trust {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 28px 32px;
+    min-width: 220px;
+    text-align: center;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .hero-trust .big { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .hero-trust .label { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 6px; }
+
+  /* ── BADGES BAR ── */
+  .badges-bar {
+    background: var(--teal);
+    padding: 18px 32px;
+  }
+  .badges-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge-item {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--white);
+    font-size: 14px; font-weight: 500;
+  }
+  .badge-icon { font-size: 20px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  /* ── ACTAS GRID ── */
+  .actas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .acta-card {
+    background: var(--white);
+    border: 1.5px solid rgba(200,168,75,.25);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    cursor: default;
+  }
+  .acta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(13,33,69,.1);
+    border-color: var(--gold);
+  }
+  .acta-icon { font-size: 32px; margin-bottom: 12px; }
+  .acta-name { font-weight: 600; font-size: 15px; color: var(--navy); }
+
+  /* ── IMSS SECTION ── */
+  .imss-section { background: var(--navy); }
+  .imss-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .imss-title { color: var(--white); }
+  .imss-title .section-label { color: var(--teal-light); }
+
+  .imss-list { list-style: none; }
+  .imss-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    color: rgba(255,255,255,.85);
+    font-size: 15px;
+  }
+  .imss-list li:last-child { border-bottom: none; }
+  .imss-list .dot {
+    width: 24px; height: 24px; min-width: 24px;
+    background: rgba(26,140,140,.25);
+    border: 1.5px solid var(--teal-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--teal-light); margin-top: 1px;
+  }
+
+  /* ── CONTABLE ── */
+  .contable-card {
+    background: linear-gradient(135deg, var(--teal) 0%, #0f6b6b 100%);
+    border-radius: 24px;
+    padding: 40px;
+    color: var(--white);
+  }
+  .contable-card .card-icon {
+    width: 56px; height: 56px;
+    background: rgba(255,255,255,.15);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .contable-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .contable-card p { font-size: 15px; line-height: 1.7; opacity: .85; }
+
+  /* ── VEHICULAR ── */
+  .vehicular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .veh-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex; align-items: center; gap: 14px;
+    box-shadow: 0 2px 12px rgba(13,33,69,.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .veh-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(13,33,69,.12); }
+  .veh-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: rgba(200,168,75,.12);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .veh-name { font-weight: 600; font-size: 14px; color: var(--navy); }
+  .veh-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── COVERAGE STRIP ── */
+  .coverage {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .coverage p {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+    letter-spacing: .5px;
+  }
+  .coverage span { opacity: .7; font-weight: 400; }
+
+  /* ── FOOTER CTA ── */
+  footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 70px 32px 40px;
+    text-align: center;
+  }
+  footer .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 900;
+    margin-bottom: 14px;
+  }
+  footer .footer-title em { color: var(--gold); font-style: italic; }
+  footer p { color: rgba(255,255,255,.6); font-size: 15px; margin-bottom: 32px; }
+
+  .footer-badges {
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+    margin-top: 48px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .footer-badge {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: rgba(255,255,255,.6); font-size: 13px;
+  }
+  .footer-badge .fi { font-size: 24px; }
+
+  .footer-copy {
+    margin-top: 32px;
+    font-size: 13px;
+    color: rgba(255,255,255,.3);
+  }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+    max-width: 120px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-trust { display: none; }
+    .imss-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <div class="hero-inner">
+    <div>
+      <div class="logo-badge">LV</div>
+      <p class="hero-tagline">Gestoría de Confianza · México</p>
+      <h1 class="hero-title">Gestoría <span>LV</span><br>Trámites</h1>
+      <p class="hero-sub">Nos encargamos de lo importante, <em>para que tú no pierdas tiempo.</em> Trámites rápidos, seguros y confiables.</p>
+      <div class="hero-cta">
+        <a href="#servicios" class="btn-primary">Ver Servicios</a>
+        <a href="#contacto" class="btn-secondary">Contáctanos</a>
+      </div>
+    </div>
+    <div class="hero-trust">
+      <div class="big">100%</div>
+      <div class="label">Información<br>Segura y Confiable</div>
+    </div>
+  </div>
+</header>
+
+<!-- BADGES BAR -->
+<div class="badges-bar">
+  <div class="badges-inner">
+    <div class="badge-item"><span class="badge-icon">🛡️</span> Confianza que Respalda</div>
+    <div class="badge-item"><span class="badge-icon">🔒</span> Información 100% Segura</div>
+    <div class="badge-item"><span class="badge-icon">⚡</span> Respuestas Rápidas</div>
+    <div class="badge-item"><span class="badge-icon">🤝</span> Atención Personalizada</div>
+  </div>
+</div>
+
+<!-- ACTAS CERTIFICADAS -->
+<section id="servicios">
+  <div class="section reveal">
+    <p class="section-label">Documentos Oficiales</p>
+    <h2 class="section-title">Actas <em>Certificadas</em></h2>
+    <div class="gold-divider"></div>
+    <div class="actas-grid">
+      <div class="acta-card"><div class="acta-icon">👶</div><div class="acta-name">Nacimiento</div></div>
+      <div class="acta-card"><div class="acta-icon">💍</div><div class="acta-name">Matrimonio</div></div>
+      <div class="acta-card"><div class="acta-icon">⚖️</div><div class="acta-name">Divorcio</div></div>
+      <div class="acta-card"><div class="acta-icon">🕊️</div><div class="acta-name">Defunción</div></div>
+      <div class="acta-card"><div class="acta-icon">🪪</div><div class="acta-name">CURP</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMSS + CONTABLE -->
+<div class="imss-section">
+  <div class="imss-inner">
+    <div class="reveal">
+      <p class="section-label" style="color: var(--teal-light)">Seguridad Social</p>
+      <h2 class="section-title imss-title" style="color: white; margin-bottom: 32px;">Trámites de <em style="color: var(--gold)">IMSS</em></h2>
+      <ul class="imss-list">
+        <li><span class="dot">✓</span> Número de Seguridad Social</li>
+        <li><span class="dot">✓</span> Semanas Cotizadas</li>
+        <li><span class="dot">✓</span> No Derecho Habiente</li>
+        <li><span class="dot">✓</span> Vigencia de Derechos</li>
+        <li><span class="dot">✓</span> Permiso para Conducir sin Placas (vigencia 30 días)</li>
+        <li><span class="dot">✓</span> CFE – Recibos de Luz</li>
+        <li><span class="dot">✓</span> RFC con CURP o IDCF</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p class="section-label" style="color: var(--teal-light)">Finanzas</p>
+      <h2 class="section-title imss-title" style="color: white; margin-bottom: 32px;">Servicios <em style="color: var(--gold)">Contables</em></h2>
+      <div class="contable-card">
+        <div class="card-icon">📊</div>
+        <h3>Contabilidad de Regímenes</h3>
+        <p>Persona Física con Actividad Empresarial Profesional y Régimen Simplificado de Confianza (RESICO).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VEHICULAR -->
+<section>
+  <div class="section reveal">
+    <p class="section-label">Más Trámites</p>
+    <h2 class="section-title">Gestoría <em>Vehicular</em></h2>
+    <div class="gold-divider"></div>
+    <div class="vehicular-grid">
+      <div class="veh-card"><div class="veh-icon">🚗</div><div><div class="veh-name">Altas</div></div></div>
+      <div class="veh-card"><div class="veh-icon">📋</div><div><div class="veh-name">Bajas</div></div></div>
+      <div class="veh-card"><div class="veh-icon">🔄</div><div><div class="veh-name">Cambio de Propietario</div></div></div>
+      <div class="veh-card"><div class="veh-icon">📅</div><div><div class="veh-name">Refrendo</div></div></div>
+      <div class="veh-card"><div class="veh-icon">🚚</div><div><div class="veh-name">Permisos de Carga</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE STRIP -->
+<div class="coverage">
+  <p>🗺️ Cobertura: <strong>Estado de México · Morelos · Guerrero · Ciudad de México</strong> <span>— Atendemos todo el país</span></p>
+</div>
+
+<!-- FOOTER CTA -->
+<footer id="contacto">
+  <p class="hero-tagline" style="margin-bottom: 12px;">¿Listo para empezar?</p>
+  <h2 class="footer-title">Trámites <em>rápidos, seguros</em><br>y confiables</h2>
+  <p>Comunícate con nosotros y resolveremos tu trámite sin complicaciones.</p>
+  <a href="https://wa.me/521XXXXXXXXXX" class="btn-primary" style="display: inline-block;">💬 Escríbenos por WhatsApp</a>
+
+  <div class="footer-badges">
+    <div class="footer-badge"><span class="fi">🛡️</span>Confianza</div>
+    <div class="footer-badge"><span class="fi">🔒</span>Seguridad</div>
+    <div class="footer-badge"><span class="fi">⚡</span>Rapidez</div>
+    <div class="footer-badge"><span class="fi">🤝</span>Atención Personalizada</div>
+  </div>
+
+  <p class="footer-copy">© 2026 Gestoría LV Trámites · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
